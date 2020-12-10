@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignor = .gitignor
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.DAL", "Cinema.DAL\Cinema.DAL.csproj", "{75B3AE67-900A-4E44-A8A9-6B6E6428E1C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{AC08DDC4-90AE-4BBB-8AB3-AF0E450321DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC08DDC4-90AE-4BBB-8AB3-AF0E450321DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC08DDC4-90AE-4BBB-8AB3-AF0E450321DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B3AE67-900A-4E44-A8A9-6B6E6428E1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B3AE67-900A-4E44-A8A9-6B6E6428E1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B3AE67-900A-4E44-A8A9-6B6E6428E1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B3AE67-900A-4E44-A8A9-6B6E6428E1C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
