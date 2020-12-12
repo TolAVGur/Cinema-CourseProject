@@ -1,0 +1,12 @@
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\Cinema.DAL.dll.config
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\Cinema.DAL.dll
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\Cinema.DAL.pdb
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\EntityFramework.dll
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\EntityFramework.xml
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\obj\Debug\Cinema.DAL.csprojAssemblyReference.cache
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\obj\Debug\Cinema.DAL.csproj.CoreCompileInputs.cache
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\obj\Debug\Cinema.DAL.csproj.CopyComplete
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\obj\Debug\Cinema.DAL.dll
+D:\Step\CoursePrjct\Cinema\Cinema.DAL\obj\Debug\Cinema.DAL.pdb

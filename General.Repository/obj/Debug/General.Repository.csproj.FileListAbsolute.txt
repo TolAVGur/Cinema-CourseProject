@@ -1,0 +1,12 @@
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\General.Repository.dll.config
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\General.Repository.dll
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\General.Repository.pdb
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\EntityFramework.dll
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\EntityFramework.SqlServer.dll
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\EntityFramework.xml
+D:\Step\CoursePrjct\Cinema\General.Repository\bin\Debug\EntityFramework.SqlServer.xml
+D:\Step\CoursePrjct\Cinema\General.Repository\obj\Debug\General.Repository.csprojAssemblyReference.cache
+D:\Step\CoursePrjct\Cinema\General.Repository\obj\Debug\General.Repository.csproj.CoreCompileInputs.cache
+D:\Step\CoursePrjct\Cinema\General.Repository\obj\Debug\General.Repository.csproj.CopyComplete
+D:\Step\CoursePrjct\Cinema\General.Repository\obj\Debug\General.Repository.dll
+D:\Step\CoursePrjct\Cinema\General.Repository\obj\Debug\General.Repository.pdb
