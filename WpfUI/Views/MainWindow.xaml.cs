@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfUI.ViewModels;
 
 namespace WpfUI
 {
@@ -20,9 +21,11 @@ namespace WpfUI
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
         private void MainWin_Loaded(object sender, RoutedEventArgs e)
@@ -30,7 +33,7 @@ namespace WpfUI
             var timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.IsEnabled = true;
-            timer.Tick += (o, t) => { lblDateTime.Content = $"Дата: {DateTime.Now:d} | Время: {DateTime.Now:T}"; };
+            timer.Tick += (o, t) => { lblDateTime.Content = $"Дата: {DateTime.Now,-40:d}Время: {DateTime.Now:T}"; };
             timer.Start();
         }
     }

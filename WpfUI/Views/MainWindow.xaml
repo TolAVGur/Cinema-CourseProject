@@ -4,22 +4,36 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"     
-        Title="CINEMA" Height="400" Width="670" MinHeight="300" MinWidth="270"
-        WindowStartupLocation="CenterScreen" Loaded="MainWin_Loaded">
+        Title="CINEMA" Height="400" Width="700" MinHeight="300" MinWidth="270"
+        WindowStartupLocation="CenterScreen" Loaded="MainWin_Loaded" Background="LightGreen">
+    
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
-            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14"></MenuItem>
-            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14"></MenuItem>
-            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14"></MenuItem>
-            <MenuItem Header="Параметры залов" Width="auto" FontSize="14"></MenuItem>
-            <MenuItem Header="Отчет $" Width="auto" FontSize="14"></MenuItem>
+            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
+            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
+            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
+            <MenuItem Header="Параметры залов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
+            <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
         </Menu>
 
         <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Label Name="lblDateTime" Margin="20,0" Height="24"></Label>
+            <Label Name="lblDateTime" Margin="20,0" Height="24" FontWeight="Bold"></Label>
         </StatusBar>
-        <StackPanel Orientation="Vertical" Margin="2" Background="LightGreen">
-            <Label Content="Здесь будет информация о текущих сеансах на сегодня..."></Label>
+        
+        <StackPanel Orientation="Vertical" Margin="2">
+            <Label Content="Информация о предстоящих сеансах" HorizontalAlignment="Left" Margin="20,2"></Label>
+            <ListBox Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="{Binding StartTime}" Margin="20,0"></Label>
+                            <Label Content="{Binding HallId}" Margin="20,0"></Label>
+                            <Label Content="{Binding FilmId}" Margin="20,0"></Label>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </StackPanel>
     </DockPanel>
 </Window>
