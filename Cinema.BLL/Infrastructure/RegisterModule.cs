@@ -22,7 +22,7 @@ namespace Cinema.BLL.Infrastructure
             builder.RegisterType(typeof(HallService)).As(typeof(IGenericService<HallDTO, int>));
             builder.RegisterType(typeof(HallRepository)).As(typeof(IGenericService<Hall, int>));
 
-            // lines - Ряды в замах
+            // lines - Ряды в залах
             builder.RegisterType(typeof(LineService)).As(typeof(IGenericService<LineDTO, int>));
             builder.RegisterType(typeof(LineRepository)).As(typeof(IGenericService<line, int>));
 

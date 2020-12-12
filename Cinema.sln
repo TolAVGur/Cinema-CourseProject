@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Repository", "Cinema
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.BLL", "Cinema.BLL\Cinema.BLL.csproj", "{808B404F-3136-4378-8DB7-26BD1499A12C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfUI", "WpfUI\WpfUI.csproj", "{7316EBEA-643A-4EE0-A2EC-6544335947AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{808B404F-3136-4378-8DB7-26BD1499A12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{808B404F-3136-4378-8DB7-26BD1499A12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{808B404F-3136-4378-8DB7-26BD1499A12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7316EBEA-643A-4EE0-A2EC-6544335947AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7316EBEA-643A-4EE0-A2EC-6544335947AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7316EBEA-643A-4EE0-A2EC-6544335947AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7316EBEA-643A-4EE0-A2EC-6544335947AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

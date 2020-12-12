@@ -1,0 +1,15 @@
+D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\WpfUI.exe.config
+D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\WpfUI.exe
+D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\WpfUI.pdb
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.csprojAssemblyReference.cache
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\MainWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\App.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI_MarkupCompile.cache
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI_MarkupCompile.lref
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\MainWindow.baml
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.g.resources
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.Properties.Resources.resources
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.csproj.GenerateResource.cache
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.csproj.CoreCompileInputs.cache
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.exe
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.pdb

@@ -1,0 +1,25 @@
+﻿<Window x:Class="WpfUI.MainWindow" Name="MainWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"     
+        Title="CINEMA" Height="400" Width="670" MinHeight="300" MinWidth="270"
+        WindowStartupLocation="CenterScreen" Loaded="MainWin_Loaded">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Background="LightGray">
+            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14"></MenuItem>
+            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14"></MenuItem>
+            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14"></MenuItem>
+            <MenuItem Header="Параметры залов" Width="auto" FontSize="14"></MenuItem>
+            <MenuItem Header="Отчет $" Width="auto" FontSize="14"></MenuItem>
+        </Menu>
+
+        <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+            <Label Name="lblDateTime" Margin="20,0" Height="24"></Label>
+        </StatusBar>
+        <StackPanel Orientation="Vertical" Margin="2" Background="LightGreen">
+            <Label Content="Здесь будет информация о текущих сеансах на сегодня..."></Label>
+        </StackPanel>
+    </DockPanel>
+</Window>
