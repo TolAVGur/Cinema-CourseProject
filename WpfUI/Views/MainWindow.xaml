@@ -3,10 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfUI"     
+        xmlns:local="clr-namespace:WpfUI"
+        xmlns:vm="clr-namespace:WpfUI.ViewModels"
+        
         Title="CINEMA" Height="400" Width="700" MinHeight="300" MinWidth="270"
-        WindowStartupLocation="CenterScreen" Loaded="MainWin_Loaded" Background="LightGreen">
-    
+        WindowStartupLocation="CenterScreen" Background="LightGreen">
+    <Window.DataContext>
+        <vm:MainViewModel></vm:MainViewModel>
+    </Window.DataContext>
     
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
@@ -17,8 +21,9 @@
             <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
         </Menu>
 
-        <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Label Name="lblDateTime" Margin="20,0" Height="24" FontWeight="Bold"></Label>
+        <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+            <Label Name="lblDateTime" Margin="20,1" Height="24" FontWeight="Bold"
+                   Content="{Binding MyDate}"></Label>
         </StatusBar>
         
         <StackPanel Orientation="Vertical" Margin="2">

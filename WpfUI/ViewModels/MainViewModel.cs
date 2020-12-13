@@ -6,30 +6,51 @@ using System.Collections.Generic;
 //using System.ComponentModel;
 using System.Linq;
 using Cinema.BLL.Services;
+using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace WpfUI.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
         IGenericService<SeanceDTO,int> service;
-        private List<SeanceDTO> _seances;
+        private ObservableCollection<SeanceDTO> _seances;
+        //private ObservableCollection<HallDTO> _halls;
+
+        private string _myDate;
+        public string MyDate
+        {
+            get { return _myDate; }
+            set { _myDate = value; OnProperty(); }
+        }
+
         public MainViewModel()
         {
             IContainer container = BuildContainer();
             service = container.Resolve<IGenericService<SeanceDTO, int>>();
-            Seances = service.GetAll().Where(s => s.StartTime >= DateTime.Today).ToList();      
+            Seances = new ObservableCollection<SeanceDTO>(service.GetAll().Where(s => s.StartTime >= DateTime.Today));
+            ShowDateTimeToday();
         }
 
-        public List<SeanceDTO> Seances
+        public ObservableCollection<SeanceDTO> Seances
         {
             get { return _seances; }
-            set { _seances = value; OnProperty(); }
+            set { _seances = value; }
         }
         private IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();
             builder.RegisterModule<RegisterModule>();
             return builder.Build();
+        }
+
+        private void ShowDateTimeToday()
+        {
+            var timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.IsEnabled = true;
+            timer.Tick += (o, t) => { MyDate = $"Сегодня: {DateTime.Today,-40:d} Время: {DateTime.Now:T}"; };
+            timer.Start();
         }
     }
 }
