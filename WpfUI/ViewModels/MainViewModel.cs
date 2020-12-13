@@ -13,37 +13,16 @@ namespace WpfUI.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
-        IGenericService<SeanceDTO,int> service;
+        IGenericService<SeanceDTO,int> serviceSeance;
         private ObservableCollection<SeanceDTO> _seances;
-        //private ObservableCollection<HallDTO> _halls;
 
+        #region -- Обработка таймера на гл.окне
         private string _myDate;
         public string MyDate
         {
             get { return _myDate; }
             set { _myDate = value; OnProperty(); }
         }
-
-        public MainViewModel()
-        {
-            IContainer container = BuildContainer();
-            service = container.Resolve<IGenericService<SeanceDTO, int>>();
-            Seances = new ObservableCollection<SeanceDTO>(service.GetAll().Where(s => s.StartTime >= DateTime.Today));
-            ShowDateTimeToday();
-        }
-
-        public ObservableCollection<SeanceDTO> Seances
-        {
-            get { return _seances; }
-            set { _seances = value; }
-        }
-        private IContainer BuildContainer()
-        {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule<RegisterModule>();
-            return builder.Build();
-        }
-
         private void ShowDateTimeToday()
         {
             var timer = new System.Windows.Threading.DispatcherTimer();
@@ -52,5 +31,30 @@ namespace WpfUI.ViewModels
             timer.Tick += (o, t) => { MyDate = $"Сегодня: {DateTime.Today,-40:d} Время: {DateTime.Now:T}"; };
             timer.Start();
         }
+        #endregion
+
+        public MainViewModel()
+        {
+            IContainer container = BuildContainer();
+            serviceSeance = container.Resolve<IGenericService<SeanceDTO, int>>();
+            Seances = new ObservableCollection<SeanceDTO>(serviceSeance.GetAll().Where(s => s.StartTime >= DateTime.Today));
+            ShowDateTimeToday();
+        }
+
+        public ObservableCollection<SeanceDTO> Seances
+        {
+            get { return _seances; }
+            set { _seances = value; }
+        }
+        //
+
+        private IContainer BuildContainer()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<RegisterModule>();
+            return builder.Build();
+        }
+
+        
     }
 }
