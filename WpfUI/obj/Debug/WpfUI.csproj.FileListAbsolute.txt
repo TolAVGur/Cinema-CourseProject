@@ -52,3 +52,5 @@ D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\WpfUI.csproj.CopyComplete
 D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\EntityFramework.SqlServer.dll
 D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\EntityFramework.SqlServer.xml
 D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\FilmsWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\FilmsWindow.baml

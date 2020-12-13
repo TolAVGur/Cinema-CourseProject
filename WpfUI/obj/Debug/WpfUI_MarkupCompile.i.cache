@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\Step\CoursePrjct\Cinema\WpfUI\App.xaml
-11892971807
+61552087060
 
-8291859430
+14-360837268
 27693764952
-Views\MainWindow.xaml;
+Views\EmployesWindow.xaml;Views\FilmsWindow.xaml;Views\HallsWindow.xaml;Views\MainWindow.xaml;Views\ReportWindow.xaml;Views\SeancesWindow.xaml;
 
-True
+False
 

@@ -1,39 +1,33 @@
-﻿<Window x:Class="WpfUI.MainWindow" Name="MainWin"
+﻿<Window x:Class="WpfUI.Views.HallsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfUI"
-        xmlns:vm="clr-namespace:WpfUI.ViewModels"
-        
-        Title="CINEMA" Height="400" Width="700" MinHeight="300" MinWidth="270"
-        WindowStartupLocation="CenterScreen" Background="LightGreen">
-    <Window.DataContext>
-        <vm:MainViewModel></vm:MainViewModel>
-    </Window.DataContext>
-    
+        xmlns:local="clr-namespace:WpfUI.Views"
+        mc:Ignorable="d"
+       Title="HALLS" Height="400" Width="700" MinHeight="300" MinWidth="270"
+        WindowStartupLocation="CenterScreen" Background="LightSlateGray">
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
             <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
             <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
             <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Параметры залов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
             <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
         </Menu>
 
         <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
             <Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>
         </StatusBar>
-        
+
         <StackPanel Orientation="Vertical" Margin="2">
-            <Label Content="Информация о предстоящих сеансах" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
-            <ListBox Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
+            <Label Content="Список залов:" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
+            <ListBox ItemsSource="{Binding}" Margin="20,0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding StartTime}" Margin="10,0"></Label>
-                            <Label Content="{Binding HallId}" Margin="10,0"></Label>
-                            <Label Content="{Binding FilmId}" Margin="10,0"></Label>
+                            <Label Content="{Binding}" Margin="20,0"></Label>
+                            <Label Content="{Binding}" Margin="20,0"></Label>
+                            <Label Content="{Binding}" Margin="20,0"></Label>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
