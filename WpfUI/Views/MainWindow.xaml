@@ -5,13 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         xmlns:vm="clr-namespace:WpfUI.ViewModels"
+        xmlns:dialog="clr-namespace:WpfUI.Services.DialogService"
         
         Title="CINEMA" Height="400" Width="700" MinHeight="300" MinWidth="270"
         WindowStartupLocation="CenterScreen" Background="LightGreen">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
-    </Window.DataContext>
-    
+    </Window.DataContext>-->
+    <Window.Resources>
+        <ObjectDataProvider ObjectType="{x:Type vm:BaseViewModel}" x:Key="data">
+            <ObjectDataProvider.ConstructorParameters>
+                <dialog:DialogServiceWPF></dialog:DialogServiceWPF>
+            </ObjectDataProvider.ConstructorParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
             <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>

@@ -54,3 +54,11 @@ D:\Step\CoursePrjct\Cinema\WpfUI\bin\Debug\EntityFramework.SqlServer.xml
 D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\FilmsWindow.g.cs
 D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\FilmsWindow.baml
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\EmployesWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\HallsWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\ReportWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\SeancesWindow.g.cs
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\EmployesWindow.baml
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\HallsWindow.baml
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\ReportWindow.baml
+D:\Step\CoursePrjct\Cinema\WpfUI\obj\Debug\Views\SeancesWindow.baml

@@ -8,16 +8,19 @@ using System.Linq;
 using Cinema.BLL.Services;
 using System.Windows;
 using System.Collections.ObjectModel;
+using WpfUI.Services.DialogService;
 
 namespace WpfUI.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        private IDialogService dialogService;
         IGenericService<SeanceDTO,int> serviceSeance;
         private ObservableCollection<SeanceDTO> _seances;
 
         #region -- Обработка таймера на гл.окне
         private string _myDate;
+
         public string MyDate
         {
             get { return _myDate; }
@@ -33,8 +36,9 @@ namespace WpfUI.ViewModels
         }
         #endregion
 
-        public MainViewModel()
+        public MainViewModel(IDialogService dialogService)
         {
+            this.dialogService = dialogService;
             IContainer container = BuildContainer();
             serviceSeance = container.Resolve<IGenericService<SeanceDTO, int>>();
             Seances = new ObservableCollection<SeanceDTO>(serviceSeance.GetAll().Where(s => s.StartTime >= DateTime.Today));
@@ -46,8 +50,6 @@ namespace WpfUI.ViewModels
             get { return _seances; }
             set { _seances = value; }
         }
-        //
-
         private IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();

@@ -90,6 +90,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Services\DialogService\DialogResult.cs" />
+    <Compile Include="Services\DialogService\DialogServiceWPF.cs" />
+    <Compile Include="Services\DialogService\IDialogService.cs" />
+    <Compile Include="Services\DisplayRegistry.cs" />
     <Compile Include="Views\EmployesWindow.xaml.cs">
       <DependentUpon>EmployesWindow.xaml</DependentUpon>
     </Compile>
