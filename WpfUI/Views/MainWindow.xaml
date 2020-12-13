@@ -21,11 +21,16 @@
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
-            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Параметры залов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
+            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"
+                      Command="{Binding OpenFilmsWindow}"></MenuItem>
+            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"
+                      Command="{Binding OpenSeancesWindow}"></MenuItem>
+            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"
+                      Command="{Binding OpenEmployesWindow}"></MenuItem>
+            <MenuItem Header="Параметры залов" Width="auto" FontSize="14" FontWeight="Bold"
+                      Command="{Binding OpenHallsWindow}"></MenuItem>
+            <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"
+                      Command="{Binding OpenReportWindow}"></MenuItem>
         </Menu>
 
         <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">

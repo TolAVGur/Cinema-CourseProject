@@ -2,6 +2,7 @@
 using WpfUI.Services;
 using WpfUI.Services.DialogService;
 using WpfUI.ViewModels;
+using WpfUI.Views;
 
 namespace WpfUI
 {
@@ -16,7 +17,11 @@ namespace WpfUI
         public App()
         {
             displayRegistry.RegisterWindowType<MainViewModel, MainWindow>();
-
+            displayRegistry.RegisterWindowType<EmployesVM, EmployesWindow>();
+            displayRegistry.RegisterWindowType<FilmsVM, FilmsWindow>();
+            displayRegistry.RegisterWindowType<HallsVM, HallsWindow>();
+            displayRegistry.RegisterWindowType<ReportVM, ReportWindow>();
+            displayRegistry.RegisterWindowType<SeancesVM, SeancesWindow>();
         }
 
         protected override void OnStartup(StartupEventArgs e)

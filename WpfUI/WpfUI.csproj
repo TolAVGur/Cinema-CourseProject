@@ -94,6 +94,11 @@
     <Compile Include="Services\DialogService\DialogServiceWPF.cs" />
     <Compile Include="Services\DialogService\IDialogService.cs" />
     <Compile Include="Services\DisplayRegistry.cs" />
+    <Compile Include="ViewModels\EmployesVM.cs" />
+    <Compile Include="ViewModels\FilmsVM.cs" />
+    <Compile Include="ViewModels\HallsVM.cs" />
+    <Compile Include="ViewModels\ReportVM.cs" />
+    <Compile Include="ViewModels\SeancesVM.cs" />
     <Compile Include="Views\EmployesWindow.xaml.cs">
       <DependentUpon>EmployesWindow.xaml</DependentUpon>
     </Compile>

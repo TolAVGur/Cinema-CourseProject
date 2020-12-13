@@ -75,7 +75,7 @@ namespace WpfUI.Services
         public void ShowModalPresentation(object vm)
         {
             var window = CreateWindowInstanceWithVM(vm);
-            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.WindowStartupLocation = WindowStartupLocation.CenterScreen;
             window.Dispatcher.Invoke(() => window.ShowDialog());
         }
 
