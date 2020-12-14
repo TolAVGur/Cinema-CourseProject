@@ -2,11 +2,9 @@
 using Cinema.BLL.Models;
 using Cinema.BLL.Infrastructure;
 using System;
-using System.Collections.Generic;
 //using System.ComponentModel;
 using System.Linq;
 using Cinema.BLL.Services;
-using System.Windows;
 using System.Collections.ObjectModel;
 using WpfUI.Services.DialogService;
 using WpfUI.Infrastructure;
@@ -54,7 +52,7 @@ namespace WpfUI.ViewModels
             var timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.IsEnabled = true;
-            timer.Tick += (o, t) => { MyDate = $"Сегодня: {DateTime.Today,-40:d} Время: {DateTime.Now:T}"; };
+            timer.Tick += (o, t) => { MyDate = $"Сегодня: {DateTime.Today,-15:d} Время: {DateTime.Now:T}"; };
             timer.Start();
         }
         #endregion

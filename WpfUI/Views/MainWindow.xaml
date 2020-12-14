@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:WpfUI.ViewModels"
         xmlns:dialog="clr-namespace:WpfUI.Services.DialogService"
         
-        Title="CINEMA" Height="400" Width="700" MinHeight="300" MinWidth="270"
+        Title="CINEMA" Height="400" Width="700" MinHeight="350" MinWidth="350"
         WindowStartupLocation="CenterScreen" Background="LightGreen">
     <!--<Window.DataContext>
         <vm:MainViewModel></vm:MainViewModel>
@@ -44,8 +44,8 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Binding StartTime}" Margin="10,0"></Label>
-                            <Label Content="{Binding HallId}" Margin="10,0"></Label>
-                            <Label Content="{Binding FilmId}" Margin="10,0"></Label>
+                            <!--<Label Content="{Binding HallId}" Margin="10,0"></Label>
+                            <Label Content="{Binding FilmId}" Margin="10,0"></Label>-->
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
