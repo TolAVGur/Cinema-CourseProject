@@ -8,15 +8,8 @@
        Title="HALLS" Height="400" Width="700" MinHeight="300" MinWidth="270"
         WindowStartupLocation="CenterScreen" Background="LightSlateGray">
     <DockPanel>
-        <Menu DockPanel.Dock="Top" Background="LightGray">
-            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-            <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"></MenuItem>
-        </Menu>
-
         <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
-            <Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>
+            <!--<Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>-->
         </StatusBar>
 
         <StackPanel Orientation="Vertical" Margin="2">

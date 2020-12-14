@@ -37,7 +37,7 @@
             <Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>
         </StatusBar>
         
-        <StackPanel Orientation="Vertical" Margin="2">
+        <StackPanel Orientation="Vertical" Margin="5">
             <Label Content="Информация о предстоящих сеансах" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
             <ListBox Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
                 <ListBox.ItemTemplate>
