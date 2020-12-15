@@ -78,6 +78,9 @@ namespace Cinema.BLL.Services
         public DbObjectDTO Update(DbObjectDTO obj)
         {
             throw new NotImplementedException();
+            //DbObject dbObject = _mapper.Map<DbObject>(obj);
+            //repository.Save();
+            //return _mapper.Map<DbObjectDTO>(dbObject);
         }
     }
 }

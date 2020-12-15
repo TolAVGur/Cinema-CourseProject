@@ -11,12 +11,15 @@ namespace WpfUI.ViewModels
 {
     public class FilmsVM : BaseViewModel
     {
-        IGenericService<FilmDTO, int> serviceFilms;
+        IContainer container;
+        IGenericService<FilmDTO, int> service;
+        
+        
         private ObservableCollection<FilmDTO> _films;
         public ObservableCollection<FilmDTO> Films
         {
             get { return _films; }
-            set { _films = value; }
+            set { _films = value; OnProperty(); }
         }
 
         #region -selected Film - carrent Film - выбранный Film 
@@ -28,19 +31,31 @@ namespace WpfUI.ViewModels
         }
         #endregion
 
-        //#region --Создать фильм
+        #region -- Команда - Создать фильм
 
-        //public RelayCommand CreateFilm { get; set; }
-        //private void CreateFilmDTO(object obj)
-        //{
-        //    SelectedFilm = new FilmDTO { NameFilm = "Input Name new Film..." };
-        //    Films.Add(SelectedFilm);
+        public RelayCommand CreateFilm { get; set; }
+        private void CreateFilmDTO(object obj)
+        {
+            SelectedFilm = new FilmDTO { NameFilm = "Введите название фильма...", Description = "введите описание...", Duration = 0 };
+            service.Add(SelectedFilm);
+            Films = new ObservableCollection<FilmDTO>(service.GetAll());
+            SelectedFilm = Films.LastOrDefault();
+        }
 
-        //    Films.LastOrDefault();
-        //}
+        #endregion
+        #region -- Команда - Удалить фильм
 
-        //#endregion
+        public RelayCommand DeleteFilm { get; set; }
+        private void DeleteFilmDTO(object obj)
+        {
+            // Добавить проверку не используется ли айдишник в будущих сеансах,
+            // Если да = ? да : нет
+            service.Delete(SelectedFilm.FilmId);
+            Films = new ObservableCollection<FilmDTO>(service.GetAll());
+            SelectedFilm = Films.FirstOrDefault();
+        }
 
+        #endregion
         private IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();
@@ -51,12 +66,18 @@ namespace WpfUI.ViewModels
         #region -- Конструктор
         public FilmsVM()
         {
-            IContainer container = BuildContainer();
-            serviceFilms = container.Resolve<IGenericService<FilmDTO, int>>();
-            Films = new ObservableCollection<FilmDTO>(serviceFilms.GetAll());
+            container = BuildContainer();
+            service = container.Resolve<IGenericService<FilmDTO, int>>();
+
+            Films = new ObservableCollection<FilmDTO>(service.GetAll());
             SelectedFilm = Films.FirstOrDefault();
+            CreateFilm = new RelayCommand(CreateFilmDTO);
+            DeleteFilm = new RelayCommand(DeleteFilmDTO);
+
+
+
+
             ShowDateTimeToday();
-            //CreateFilm = new RelayCommand(CreateFilmDTO);
         }
         #endregion
 
