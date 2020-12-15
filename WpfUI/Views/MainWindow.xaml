@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI"
         xmlns:vm="clr-namespace:WpfUI.ViewModels"
-        xmlns:dialog="clr-namespace:WpfUI.Services.DialogService"
-        
+        xmlns:dialog="clr-namespace:WpfUI.Services.DialogService"    
         Title="CINEMA" Height="400" Width="700" MinHeight="350" MinWidth="350"
         WindowStartupLocation="CenterScreen" Background="LightGreen">
     <!--<Window.DataContext>
@@ -21,15 +20,15 @@
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top" Background="LightGray">
-            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14" FontWeight="Bold"
+            <MenuItem Header="Редактор фильмов" Width="auto" FontSize="14"
                       Command="{Binding OpenFilmsWindow}"></MenuItem>
-            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14" FontWeight="Bold"
+            <MenuItem Header="Управление сеансами" Width="auto" FontSize="14"
                       Command="{Binding OpenSeancesWindow}"></MenuItem>
-            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14" FontWeight="Bold"
+            <MenuItem Header="Управление персоналом" Width="auto" FontSize="14"
                       Command="{Binding OpenEmployesWindow}"></MenuItem>
-            <MenuItem Header="Параметры залов" Width="auto" FontSize="14" FontWeight="Bold"
+            <MenuItem Header="Параметры залов" Width="auto" FontSize="14"
                       Command="{Binding OpenHallsWindow}"></MenuItem>
-            <MenuItem Header="Отчет" Width="auto" FontSize="14" FontWeight="Bold"
+            <MenuItem Header="Отчет" Width="auto" FontSize="14"
                       Command="{Binding OpenReportWindow}"></MenuItem>
         </Menu>
 

@@ -19,25 +19,40 @@
         </StatusBar>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="43.2"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="2">
-                <Label Content="Список фильмов:" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
-                <ListBox ItemsSource="{Binding Films}" Margin="20,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="178*"/>
+                <ColumnDefinition Width="169*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,10,10,10.2">
+                <TextBlock Text="Список фильмов:" HorizontalAlignment="Left" FontSize="14" Margin="5,0"></TextBlock>
+                <ListBox Margin="0" FontSize="14" Height="220"
+                         ItemsSource="{Binding Films}" SelectedItem ="{Binding SelectedFilm}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Label Content="{Binding NameFilm}" Margin="20,0"></Label>
-                                <Label Content="{Binding Duration}" Margin="20,0"></Label>
-                                <Label Content="{Binding Description}" Margin="20,0"></Label>
+                                <Label Content="{Binding NameFilm}" Margin="5,0"></Label>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Margin="5" Content="Добавить фильм" />
+            <StackPanel Grid.Column="1" Margin="10,10,19.6,10.2">
+                <TextBlock Text="Название фильма:" FontSize="14" Margin="5,0"/>
+                <TextBox Text="{Binding SelectedFilm.NameFilm}"/>
+                <TextBlock Text="Описание:" Margin="5,2,0,0"/>
+                <TextBox Text="{Binding SelectedFilm.Description}" 
+                         AcceptsReturn="True" TextWrapping="Wrap" Height="184" Margin="0" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Длительность:" Margin="5,0"/>
+                    <TextBox Text="{Binding SelectedFilm.Duration}" Margin="5,0,0,0" FontSize="10" Width="50"></TextBox>
+                    <TextBlock Margin="5,0,0,0" Text="минут."/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="152,2.8,152.6,0.4" Width="389" Grid.Row="1">
+                <Button Margin="5" Content="Добавить фильм" Command="{Binding CreateFilm}"/>
                 <Button Margin="5" Content="Удалить фильм"/>
                 <Button Margin="5" Content="Сохранить"/>
             </StackPanel>

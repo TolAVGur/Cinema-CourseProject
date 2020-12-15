@@ -4,6 +4,8 @@ using Cinema.BLL.Models;
 using Cinema.BLL.Services;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
+using WpfUI.Infrastructure;
 
 namespace WpfUI.ViewModels
 {
@@ -16,6 +18,29 @@ namespace WpfUI.ViewModels
             get { return _films; }
             set { _films = value; }
         }
+
+        #region -selected Film - carrent Film - выбранный Film 
+        private FilmDTO _selectedFilm;
+        public FilmDTO SelectedFilm
+        {
+            get { return _selectedFilm; }
+            set { _selectedFilm = value; OnProperty(); }
+        }
+        #endregion
+
+        //#region --Создать фильм
+
+        //public RelayCommand CreateFilm { get; set; }
+        //private void CreateFilmDTO(object obj)
+        //{
+        //    SelectedFilm = new FilmDTO { NameFilm = "Input Name new Film..." };
+        //    Films.Add(SelectedFilm);
+
+        //    Films.LastOrDefault();
+        //}
+
+        //#endregion
+
         private IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();
@@ -23,13 +48,17 @@ namespace WpfUI.ViewModels
             return builder.Build();
         }
 
+        #region -- Конструктор
         public FilmsVM()
         {
             IContainer container = BuildContainer();
             serviceFilms = container.Resolve<IGenericService<FilmDTO, int>>();
             Films = new ObservableCollection<FilmDTO>(serviceFilms.GetAll());
+            SelectedFilm = Films.FirstOrDefault();
             ShowDateTimeToday();
+            //CreateFilm = new RelayCommand(CreateFilmDTO);
         }
+        #endregion
 
         #region -- Обработка таймера - отображение времени
         private string _myDate;
