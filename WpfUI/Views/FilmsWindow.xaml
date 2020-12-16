@@ -28,8 +28,8 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="0" Orientation="Vertical" Margin="10,10,10,10.2">
                 <TextBlock Text="Список фильмов:" HorizontalAlignment="Left" FontSize="14" Margin="5,0"></TextBlock>
-                <ListBox Margin="0" FontSize="10"
-                         ItemsSource="{Binding Films}" SelectedItem ="{Binding SelectedFilm}" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="250">
+                <ListBox Margin="0" FontSize="10" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" MaxHeight="250"
+                         ItemsSource="{Binding Films}" SelectedItem ="{Binding SelectedFilm}" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -53,7 +53,7 @@
             </StackPanel>
             <StackPanel Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="152,2.8,152.6,0.4" Width="389" Grid.Row="1">
                 <Button Margin="5" Content="Добавить фильм" Command="{Binding CreateFilm}"/>
-                <Button Margin="5" Content="Удалить фильм" Command="{Binding DeleteFilm}"/>
+                <Button Margin="5" Content="Удалить фильм" Command="{Binding DeleteFilm}" IsEnabled="{Binding CheckDel}"/>
                 <Button Margin="5" Content="Сохранить"/>
             </StackPanel>
         </Grid>

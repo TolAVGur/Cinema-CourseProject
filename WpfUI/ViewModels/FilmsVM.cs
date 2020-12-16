@@ -5,15 +5,17 @@ using Cinema.BLL.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+//using System.Windows;
 using WpfUI.Infrastructure;
+using WpfUI.Services.DialogService;
 
 namespace WpfUI.ViewModels
 {
     public class FilmsVM : BaseViewModel
     {
         IContainer container;
-        IGenericService<FilmDTO, int> service;
-        
+        IGenericService<FilmDTO, int> serviceFilm;
+        IGenericService<SeanceDTO, int> serviceSeance;
         
         private ObservableCollection<FilmDTO> _films;
         public ObservableCollection<FilmDTO> Films
@@ -22,37 +24,61 @@ namespace WpfUI.ViewModels
             set { _films = value; OnProperty(); }
         }
 
+        private ObservableCollection<SeanceDTO> _seances;
+        public ObservableCollection<SeanceDTO> Seances
+        {
+            get { return _seances; }
+            set { _seances= value; OnProperty(); }
+        }
+
         #region -selected Film - carrent Film - выбранный Film 
         private FilmDTO _selectedFilm;
         public FilmDTO SelectedFilm
         {
             get { return _selectedFilm; }
-            set { _selectedFilm = value; OnProperty(); }
+            set { _selectedFilm = value;
+                CheckDel = CheckDeleteFunc();
+                OnProperty(); }
         }
         #endregion
 
         #region -- Команда - Создать фильм
-
         public RelayCommand CreateFilm { get; set; }
         private void CreateFilmDTO(object obj)
         {
             SelectedFilm = new FilmDTO { NameFilm = "Введите название фильма...", Description = "введите описание...", Duration = 0 };
-            service.Add(SelectedFilm);
-            Films = new ObservableCollection<FilmDTO>(service.GetAll());
+            serviceFilm.Add(SelectedFilm);
+            Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
             SelectedFilm = Films.LastOrDefault();
         }
 
         #endregion
         #region -- Команда - Удалить фильм
 
+                #region >> проверка на использование фильма в сеансах
+        public bool _checkDel;
+        public bool CheckDel
+        {
+            get => _checkDel;
+            set { _checkDel = value; OnProperty(); }
+        }
+
+        private bool CheckDeleteFunc()
+        {
+            int id = SelectedFilm.FilmId;
+            int index = Seances.ToList().FindIndex(s => s.FilmId == id);
+            return index == -1 ? true : false;
+        }
+        #endregion
         public RelayCommand DeleteFilm { get; set; }
+       
+
         private void DeleteFilmDTO(object obj)
         {
-            // Добавить проверку не используется ли айдишник в будущих сеансах,
-            // Если да = ? да : нет
-            service.Delete(SelectedFilm.FilmId);
-            Films = new ObservableCollection<FilmDTO>(service.GetAll());
+            serviceFilm.Delete(SelectedFilm.FilmId);
+            Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
             SelectedFilm = Films.FirstOrDefault();
+            // Если да = при нажатии ? да : нет
         }
 
         #endregion
@@ -67,13 +93,16 @@ namespace WpfUI.ViewModels
         public FilmsVM()
         {
             container = BuildContainer();
-            service = container.Resolve<IGenericService<FilmDTO, int>>();
-
-            Films = new ObservableCollection<FilmDTO>(service.GetAll());
+            serviceFilm = container.Resolve<IGenericService<FilmDTO, int>>();
+            serviceSeance = container.Resolve<IGenericService<SeanceDTO, int>>();
+            //
+            Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
+            Seances = new ObservableCollection<SeanceDTO>(serviceSeance.GetAll());
             SelectedFilm = Films.FirstOrDefault();
+            //
             CreateFilm = new RelayCommand(CreateFilmDTO);
             DeleteFilm = new RelayCommand(DeleteFilmDTO);
-
+            //
 
 
 
@@ -83,7 +112,6 @@ namespace WpfUI.ViewModels
 
         #region -- Обработка таймера - отображение времени
         private string _myDate;
-
         public string MyDate
         {
             get { return _myDate; }
