@@ -12,11 +12,11 @@ namespace WpfUI
     public partial class App : Application
     {
         public DisplayRegistry displayRegistry = new DisplayRegistry();
-        MainViewModel mainViewModel;
+        MainVM mainViewModel;
 
         public App()
         {
-            displayRegistry.RegisterWindowType<MainViewModel, MainWindow>();
+            displayRegistry.RegisterWindowType<MainVM, MainWindow>();
             displayRegistry.RegisterWindowType<EmployesVM, EmployesWindow>();
             displayRegistry.RegisterWindowType<FilmsVM, FilmsWindow>();
             displayRegistry.RegisterWindowType<HallsVM, HallsWindow>();
@@ -28,7 +28,7 @@ namespace WpfUI
         {
             base.OnStartup(e);
             var service = new DialogServiceWPF();
-            mainViewModel = new MainViewModel(service);
+            mainViewModel = new MainVM(service);
             displayRegistry.ShowModalPresentation(mainViewModel);
 
             Shutdown();

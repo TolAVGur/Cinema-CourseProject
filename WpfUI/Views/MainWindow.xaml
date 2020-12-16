@@ -12,7 +12,7 @@
         <vm:MainViewModel></vm:MainViewModel>
     </Window.DataContext>-->
     <Window.Resources>
-        <ObjectDataProvider ObjectType="{x:Type vm:BaseViewModel}" x:Key="data">
+        <ObjectDataProvider ObjectType="{x:Type vm:BaseVM}" x:Key="data">
             <ObjectDataProvider.ConstructorParameters>
                 <dialog:DialogServiceWPF></dialog:DialogServiceWPF>
             </ObjectDataProvider.ConstructorParameters>

@@ -11,7 +11,7 @@ using WpfUI.Infrastructure;
 
 namespace WpfUI.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MainVM : BaseVM
     {
         readonly IDialogService dialogService;
         IGenericService<SeanceDTO,int> serviceSeance;
@@ -29,7 +29,7 @@ namespace WpfUI.ViewModels
         }
 
         #region -- Конструктор
-        public MainViewModel(IDialogService dialogService)
+        public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
             IContainer container = BuildContainer();

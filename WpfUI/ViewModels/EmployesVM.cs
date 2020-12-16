@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfUI.ViewModels
 {
-    public class EmployesVM : BaseViewModel
+    public class EmployesVM : BaseVM
     {
     }
 }

@@ -11,7 +11,7 @@ using WpfUI.Services.DialogService;
 
 namespace WpfUI.ViewModels
 {
-    public class FilmsVM : BaseViewModel
+    public class FilmsVM : BaseVM
     {
         IContainer container;
         IGenericService<FilmDTO, int> serviceFilm;

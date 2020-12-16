@@ -132,8 +132,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrastructure\RelayCommand.cs" />
-    <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\MainVM.cs" />
     <Compile Include="Views\FilmsWindow.xaml.cs">
       <DependentUpon>FilmsWindow.xaml</DependentUpon>
     </Compile>
