@@ -5,9 +5,9 @@ using Cinema.BLL.Services;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-//using System.Windows;
+using System.Windows;
 using WpfUI.Infrastructure;
-using WpfUI.Services.DialogService;
+//using WpfUI.Services.DialogService;
 
 namespace WpfUI.ViewModels
 {
@@ -16,7 +16,13 @@ namespace WpfUI.ViewModels
         IContainer container;
         IGenericService<FilmDTO, int> serviceFilm;
         IGenericService<SeanceDTO, int> serviceSeance;
-        
+        private IContainer BuildContainer()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<RegisterModule>();
+            return builder.Build();
+        }
+
         private ObservableCollection<FilmDTO> _films;
         public ObservableCollection<FilmDTO> Films
         {
@@ -47,15 +53,16 @@ namespace WpfUI.ViewModels
         private void CreateFilmDTO(object obj)
         {
             SelectedFilm = new FilmDTO { NameFilm = "Введите название фильма...", Description = "введите описание...", Duration = 0 };
-            serviceFilm.Add(SelectedFilm);
+            serviceFilm.Update(SelectedFilm);
             Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
+            //Films.Add(SelectedFilm);
             SelectedFilm = Films.LastOrDefault();
         }
 
         #endregion
         #region -- Команда - Удалить фильм
 
-                #region >> проверка на использование фильма в сеансах
+                #region >> проверка на использование id фильма в сеансах
         public bool _checkDel;
         public bool CheckDel
         {
@@ -75,19 +82,25 @@ namespace WpfUI.ViewModels
 
         private void DeleteFilmDTO(object obj)
         {
-            serviceFilm.Delete(SelectedFilm.FilmId);
-            Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
-            SelectedFilm = Films.FirstOrDefault();
-            // Если да = при нажатии ? да : нет
+            MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Удалить?", "Подтвердите удаление!", System.Windows.MessageBoxButton.YesNo);
+
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                serviceFilm.Delete(SelectedFilm.FilmId);
+                Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
+                SelectedFilm = Films.FirstOrDefault();
+            }
         }
 
         #endregion
-        private IContainer BuildContainer()
+        #region -- Команда Сохранения
+            public RelayCommand UpdateFilm { get; set; }
+        private void UpdateFilmDTO(object obj)
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterModule<RegisterModule>();
-            return builder.Build();
+            serviceFilm.Update(SelectedFilm);
+            SelectedFilm = Films.FirstOrDefault();
         }
+        #endregion
 
         #region -- Конструктор
         public FilmsVM()
@@ -102,10 +115,8 @@ namespace WpfUI.ViewModels
             //
             CreateFilm = new RelayCommand(CreateFilmDTO);
             DeleteFilm = new RelayCommand(DeleteFilmDTO);
+            UpdateFilm = new RelayCommand(UpdateFilmDTO);
             //
-
-
-
             ShowDateTimeToday();
         }
         #endregion

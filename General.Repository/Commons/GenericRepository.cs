@@ -20,11 +20,14 @@ namespace General.Repository.Commons
         public void Create(T obj)
         {
             dbSet.AddOrUpdate(obj);
+            //context.SaveChanges();
         }
 
         public void Update(T obj)
         {
             dbSet.AddOrUpdate(obj);
+            //context.SaveChanges();
+            
         }
         public void Delete(TKey id)
         {

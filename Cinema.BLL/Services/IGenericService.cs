@@ -12,5 +12,6 @@ namespace Cinema.BLL.Services
         T Add(T obj);
         T Update(T obj);
         T Delete(TKey id);
+       
     }
 }

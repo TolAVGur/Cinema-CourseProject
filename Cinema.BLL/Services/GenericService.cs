@@ -74,13 +74,12 @@ namespace Cinema.BLL.Services
             return collection;
         }
 
-        //////////////////////////////////////////////////////////////////////////////////////////////
         public DbObjectDTO Update(DbObjectDTO obj)
         {
-            throw new NotImplementedException();
-            //DbObject dbObject = _mapper.Map<DbObject>(obj);
-            //repository.Save();
-            //return _mapper.Map<DbObjectDTO>(dbObject);
+            DbObject dbObject = _mapper.Map<DbObject>(obj);
+            repository.Update(dbObject);
+            repository.Save();
+            return _mapper.Map<DbObjectDTO>(dbObject);
         }
     }
 }
