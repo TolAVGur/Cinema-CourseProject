@@ -1,2 +1,12 @@
 # папка локальных настроек VisualStudio
 .vs/
+Cinema.BLL/bin/Debug/
+Cinema.BLL/obj/Debug/
+Cinema.DAL/bin/Debug/
+Cinema.DAL/obj/Debug/
+Cinema.Repository/obj/Debug/
+Cinema.Repository/bin/Debug/
+General.Repository/bin/Debug/
+General.Repository/obj/Debug/
+WpfUI/obj/Debug/
+WpfUI/bin/Debug/
