@@ -68,7 +68,7 @@ namespace WpfUI.ViewModels
             var timer = new System.Windows.Threading.DispatcherTimer();
             timer.Interval = new TimeSpan(0, 0, 1);
             timer.IsEnabled = true;
-            timer.Tick += (o, t) => { MyDate = $"Сегодня: {DateTime.Today,-15:d} Время: {DateTime.Now:T}"; };
+            timer.Tick += (o, t) => { MyDate = $" {DateTime.Today,-20:d} {DateTime.Now:t}"; };
             timer.Start();
         }
         #endregion

@@ -32,8 +32,9 @@
                       Command="{Binding OpenReportWindow}"></MenuItem>
         </Menu>
 
-        <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
-            <Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>
+        <StatusBar DockPanel.Dock="Bottom" HorizontalContentAlignment="Center">
+            <Label Margin="20,1" Height="24" FontWeight="Bold"
+                   Background="BurlyWood" Content="{Binding MyDate}"></Label>
         </StatusBar>
         
         <StackPanel Orientation="Vertical" Margin="5">
