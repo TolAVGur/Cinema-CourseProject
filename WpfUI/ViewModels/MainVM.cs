@@ -14,6 +14,8 @@ namespace WpfUI.ViewModels
     public class MainVM : BaseVM
     {
         readonly IDialogService dialogService;
+        IContainer container;
+        //IGenericService<FilmDTO, int> serviceFilm;
         IGenericService<SeanceDTO,int> serviceSeance;
         private ObservableCollection<SeanceDTO> _seances;
         public ObservableCollection<SeanceDTO> Seances
@@ -21,6 +23,15 @@ namespace WpfUI.ViewModels
             get { return _seances; }
             set { _seances = value; }
         }
+        //private ObservableCollection<FilmDTO> _films;
+        //public ObservableCollection<FilmDTO> Films
+        //{
+        //    get { return _films; }
+        //    set { _films = value; OnProperty(); }
+        //}
+
+
+
         private IContainer BuildContainer()
         {
             var builder = new ContainerBuilder();
@@ -32,9 +43,14 @@ namespace WpfUI.ViewModels
         public MainVM(IDialogService dialogService)
         {
             this.dialogService = dialogService;
-            IContainer container = BuildContainer();
+            //
+            container = BuildContainer();
             serviceSeance = container.Resolve<IGenericService<SeanceDTO, int>>();
+            //serviceFilm = container.Resolve<IGenericService<FilmDTO, int>>();
             Seances = new ObservableCollection<SeanceDTO>(serviceSeance.GetAll().Where(s => s.StartTime >= DateTime.Today));
+            //Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
+
+            //
             ShowDateTimeToday();
         }
         #endregion

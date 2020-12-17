@@ -37,14 +37,14 @@
         </StatusBar>
         
         <StackPanel Orientation="Vertical" Margin="5">
-            <Label Content="Информация о предстоящих сеансах" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
+            <Label Content="Сеансы на сегодня" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
             <ListBox Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Binding StartTime}" Margin="10,0"></Label>
-                            <!--<Label Content="{Binding HallId}" Margin="10,0"></Label>
-                            <Label Content="{Binding FilmId}" Margin="10,0"></Label>-->
+                            <Label Content="{Binding FilmId}" Margin="10,0"></Label>
+                            <Label Content="{Binding HallId}" Margin="10,0"></Label>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>

@@ -93,7 +93,7 @@ namespace WpfUI.ViewModels
         }
 
         #endregion
-        #region -- Команда Сохранения
+        #region -- Команда Сохранить фильм
             public RelayCommand UpdateFilm { get; set; }
         private void UpdateFilmDTO(object obj)
         {
