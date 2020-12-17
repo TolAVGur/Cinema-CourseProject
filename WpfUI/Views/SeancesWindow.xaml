@@ -5,26 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfUI.Views"
         mc:Ignorable="d"
-        Title="SEANCES" Height="400" Width="700" MinHeight="300" MinWidth="270"
+        Title="SEANCES" Height="400" Width="700" MinHeight="350" MinWidth="350"
         WindowStartupLocation="CenterScreen" Background="RosyBrown">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Width" Value="120" />
+            <Setter Property="Height" Value="24" />
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
-            <!--<Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>-->
+            <Label Margin="20,1" Height="24" FontWeight="Bold" Content="{Binding MyDate}"></Label>
         </StatusBar>
-
-        <StackPanel Orientation="Vertical" Margin="2">
-            <Label Content="Список сеансов:" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
-            <ListBox ItemsSource="{Binding}" Margin="20,0">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="{Binding}" Margin="20,0"></Label>
-                            <Label Content="{Binding}" Margin="20,0"></Label>
-                            <Label Content="{Binding}" Margin="20,0"></Label>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
+        <Grid ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="43.2"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0"  Margin="5">
+                <TextBlock Text="Залы:" HorizontalAlignment="Left" Margin="5,15,5,0"/>
+                <ComboBox Margin="5,0,10,50"/>
+                <DatePicker Margin="5,0,10,5"/>
+                <StackPanel Orientation="Horizontal" Margin="5,0,10,5">
+                    <TextBlock Text="Время:" Margin="5,0,5,0"/>
+                    <TextBox Width="50" Margin="5,0,5,0"/>
+                    <TextBlock Text="ч."/>
+                    <TextBox Width="50" Margin="5,0"/>
+                    <TextBlock Text="мин."/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
+                <TextBlock Text="Фильмы:" Margin="5,15,5,0"/>
+                <ListView Margin="5,0,10,50"></ListView>
+                <TextBlock Text="Сеансы:"/>
+                <ListView Margin="5,0,10,50"></ListView>
+            </StackPanel>
+            <StackPanel Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Margin="152,2.8,152.6,0.4" Width="389" Grid.Row="1">
+                <Button Margin="5" Content="Добавить сеанс" Command="{Binding}"/>
+                <Button Margin="5" Content="Удалить сеанс" Command="{Binding}" IsEnabled="{Binding}"/>
+                <Button Margin="5" Content="Обновить сеанс" Command="{Binding}"/>
+            </StackPanel>
+        </Grid>
     </DockPanel>
 </Window>
