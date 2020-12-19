@@ -21,26 +21,24 @@
         <Grid ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition Height="43.2"/>
+                <RowDefinition Height="36"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="200*"/>
+                <ColumnDefinition Width="400*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Row="0"  Margin="5">
-                <TextBlock Text="Залы:" HorizontalAlignment="Left" Margin="5,15,5,0"/>
-                <ComboBox Margin="5,0,10,50" ItemsSource="{Binding Halls}" SelectedItem="{Binding SelectedHall}" DisplayMemberPath="NameHall"/>
+            <StackPanel Grid.Row="0"  Margin="5,5,5.2,3.4" Grid.Column="0">
+                <TextBlock Text="Залы:" HorizontalAlignment="Left" Margin="5,0,5,0"/>
+                <ComboBox Margin="5,0,10,5" ItemsSource="{Binding Halls}" SelectedItem="{Binding SelectedHall}" DisplayMemberPath="NameHall"/>
                 <DatePicker Margin="5,0,10,5"/>
-                <StackPanel Orientation="Horizontal" Margin="5,0,10,5">
+                <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Время:" Margin="5,0,5,0"/>
                     <TextBox Width="50" Margin="5,0,5,0"/>
                     <TextBlock Text="ч."/>
                     <TextBox Width="50" Margin="5,0"/>
                     <TextBlock Text="мин."/>
                 </StackPanel>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5">
-                <TextBlock Text="Фильмы:" Margin="5,15,5,0"/>
+                <TextBlock Text="Фильмы:" Margin="5,0,5,0"/>
                 <ListView Margin="5,0,10,50" ItemsSource="{Binding Films}">
                     <ListView.View>
                         <GridView>
@@ -49,13 +47,24 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <TextBlock Text="Сеансы:"/>
-                <ListView Margin="5,0,10,50"></ListView>
             </StackPanel>
-            <StackPanel Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
-                <Button Margin="5" Content="Добавить сеанс" Command="{Binding}"/>
-                <Button Margin="5" Content="Удалить сеанс" Command="{Binding}" IsEnabled="{Binding}"/>
-                <Button Margin="5" Content="Обновить сеанс" Command="{Binding}"/>
+            <StackPanel Orientation="Vertical" Grid.Column="1" >
+                <TextBlock Text="Сеансы:" Margin="5,0"/>
+                <ListView Height="250" Margin="5,0,10,0" ItemsSource="{Binding Seances}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=NameHall}">Зал</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}">Начало сеанса</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=StopTime}">Конец сеанса</GridViewColumn>
+                            <GridViewColumn DisplayMemberBinding="{Binding Path=NameFilm}">Фильм</GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Orientation="Horizontal" Margin="152,1.6,152.6,0.4" Width="389">
+                <Button Margin="5,0" Content="Добавить сеанс" Command="{Binding}"/>
+                <Button Margin="5,0" Content="Удалить сеанс" Command="{Binding}" IsEnabled="{Binding}"/>
+                <Button Margin="5,0" Content="Обновить сеанс" Command="{Binding}"/>
             </StackPanel>
         </Grid>
     </DockPanel>

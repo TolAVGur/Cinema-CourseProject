@@ -42,8 +42,9 @@
             <ListView Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}">Начало сеанса</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=NameHall}">Зал</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}">Начало сеанса</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=StopTime}">Конец сеанса</GridViewColumn>
                         <GridViewColumn DisplayMemberBinding="{Binding Path=NameFilm}">Фильм</GridViewColumn>
                     </GridView>
                 </ListView.View>
