@@ -55,7 +55,6 @@ namespace WpfUI.ViewModels
             SelectedFilm = new FilmDTO { NameFilm = "Введите название фильма...", Description = "введите описание...", Duration = 0 };
             serviceFilm.Update(SelectedFilm);
             Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
-            //Films.Add(SelectedFilm);
             SelectedFilm = Films.LastOrDefault();
         }
 

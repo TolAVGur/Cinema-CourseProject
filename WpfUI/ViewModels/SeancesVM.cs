@@ -11,7 +11,10 @@ namespace WpfUI.ViewModels
 
 
 
-
+        public SeancesVM()
+        {
+            ShowDateTimeToday();
+        }
 
         #region -- Обработка таймера - отображение времени
         private string _myDate;
