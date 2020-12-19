@@ -34,19 +34,36 @@ namespace Cinema.BLL.Services
             //
         public DbObjectDTO Add(DbObjectDTO obj)
         {
-            DbObject dbObject = _mapper.Map<DbObject>(obj);
-            repository.Create(dbObject);
-            repository.Save();
-            return _mapper.Map<DbObjectDTO>(dbObject);
+            try
+            {
+                DbObject dbObject = _mapper.Map<DbObject>(obj);
+                repository.Create(dbObject);
+                repository.Save();
+                return _mapper.Map<DbObjectDTO>(dbObject);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
 
         public DbObjectDTO Delete(TKey id)
         {
-            var objDB = repository.Get(id);
-            var objDTO = _mapper.Map<DbObjectDTO>(objDB);
-            repository.Delete(id);
-            repository.Save();
-            return objDTO;
+            try
+            {
+                var objDB = repository.Get(id);
+                var objDTO = _mapper.Map<DbObjectDTO>(objDB);
+                repository.Delete(id);
+                repository.Save();
+                return objDTO;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
         }
 
         public IEnumerable<DbObjectDTO> FindBy(Expression<Func<DbObjectDTO, bool>> predicate)
@@ -64,22 +81,46 @@ namespace Cinema.BLL.Services
 
         public DbObjectDTO Get(TKey id)
         {
-            DbObject dbObject = repository.Get(id);
-            return _mapper.Map<DbObjectDTO>(dbObject);
+            try
+            {
+                DbObject dbObject = repository.Get(id);
+                return _mapper.Map<DbObjectDTO>(dbObject);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         public IEnumerable<DbObjectDTO> GetAll()
         {
-            var collection = repository.GetAll().AsEnumerable().Select(e => _mapper.Map<DbObjectDTO>(e));
-            return collection;
+            try
+            {
+                var collection = repository.GetAll().AsEnumerable().Select(e => _mapper.Map<DbObjectDTO>(e));
+                return collection;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+           
         }
 
         public DbObjectDTO Update(DbObjectDTO obj)
         {
-            DbObject dbObject = _mapper.Map<DbObject>(obj);
-            repository.Update(dbObject);
-            repository.Save();
-            return _mapper.Map<DbObjectDTO>(dbObject);
+            try
+            {
+                DbObject dbObject = _mapper.Map<DbObject>(obj);
+                repository.Update(dbObject);
+                repository.Save();
+                return _mapper.Map<DbObjectDTO>(dbObject);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
     }
 }

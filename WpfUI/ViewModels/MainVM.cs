@@ -2,7 +2,6 @@
 using Cinema.BLL.Models;
 using Cinema.BLL.Infrastructure;
 using System;
-//using System.ComponentModel;
 using System.Linq;
 using Cinema.BLL.Services;
 using System.Collections.ObjectModel;
@@ -15,7 +14,6 @@ namespace WpfUI.ViewModels
     {
         readonly IDialogService dialogService;
         IContainer container;
-        //IGenericService<FilmDTO, int> serviceFilm;
         IGenericService<SeanceDTO,int> serviceSeance;
         private ObservableCollection<SeanceDTO> _seances;
         public ObservableCollection<SeanceDTO> Seances
@@ -23,14 +21,6 @@ namespace WpfUI.ViewModels
             get { return _seances; }
             set { _seances = value; }
         }
-        //private ObservableCollection<FilmDTO> _films;
-        //public ObservableCollection<FilmDTO> Films
-        //{
-        //    get { return _films; }
-        //    set { _films = value; OnProperty(); }
-        //}
-
-
 
         private IContainer BuildContainer()
         {
@@ -46,10 +36,9 @@ namespace WpfUI.ViewModels
             //
             container = BuildContainer();
             serviceSeance = container.Resolve<IGenericService<SeanceDTO, int>>();
-            //serviceFilm = container.Resolve<IGenericService<FilmDTO, int>>();
-            Seances = new ObservableCollection<SeanceDTO>(serviceSeance.GetAll().Where(s => s.StartTime >= DateTime.Today));
-            //Films = new ObservableCollection<FilmDTO>(serviceFilm.GetAll());
-
+            Seances = new ObservableCollection<SeanceDTO>(serviceSeance.FindBy(s=>s.StartTime >= DateTime.Today));
+            
+           
             //
             ShowDateTimeToday();
         }

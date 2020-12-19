@@ -11,8 +11,10 @@ namespace Cinema.BLL.Models
         public int SeanceId { get; set; }
 
         public int HallId { get; set; }
+        public string NameHall { get; set; }
 
         public int FilmId { get; set; }
+        public string NameFilm { get; set; }
 
         public DateTime StartTime { get; set; }
 
