@@ -39,8 +39,15 @@
         
         <StackPanel Orientation="Vertical" Margin="5">
             <Label Content="Предстоящие сеансы:" HorizontalAlignment="Left" Margin="20,2" FontSize="14"></Label>
-            <ListBox Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
-                <ListBox.ItemTemplate>
+            <ListView Name="lBoxSeanses" ItemsSource="{Binding Seances}" Margin="20,0" FontSize="10">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=StartTime}">Начало сеанса</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=NameHall}">Зал</GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding Path=NameFilm}">Фильм</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+                <!--<ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Label Content="{Binding StartTime}" Margin="10,0"></Label>
@@ -48,8 +55,8 @@
                             <Label Content="{Binding NameFilm}" Margin="10,0"></Label>
                         </StackPanel>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                </ListBox.ItemTemplate>-->
+            </ListView>
         </StackPanel>
     </DockPanel>
 </Window>
